@@ -2,9 +2,11 @@
 # https://docs.gradle.org/current/userguide/version_catalogs.html#sec::toml-dependencies-format
 
 [versions]
+assertj-swing = "3.17.1"
 guava = "33.5.0-jre"
 junit = "4.13.2"
 
 [libraries]
+assertj-swing = { module = "org.assertj:assertj-swing", version.ref = "assertj-swing" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit = { module = "junit:junit", version.ref = "junit" }

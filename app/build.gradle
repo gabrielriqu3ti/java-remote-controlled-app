@@ -16,6 +16,9 @@ repositories {
 }
 
 dependencies {
+    // User AssertJ framework to test Swing components 
+    testImplementation libs.assertj.swing
+
     // Use JUnit test framework.
     testImplementation libs.junit
 
@@ -32,5 +35,9 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.App'
+    mainClass = 'org.guiapp.App'
+}
+
+test {
+    jvmArgs '--add-opens=java.base/java.util=ALL-UNNAMED'
 }
