@@ -1,12 +1,15 @@
 package org.guiapp.ui;
 
 
+import javax.swing.JLabel;
+
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.fixture.FrameFixture;
 import org.guiapp.robot.FrameFactory;
 import org.guiapp.robot.Robot;
 import org.guiapp.robot.RobotFactory;
 import org.guiapp.robot.RobotManager;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -34,7 +37,19 @@ public class AppTestWithRobot {
                 window.textBox().deleteText().enterText(text);
                 window.textBox().requireText(text);
                 window.button().click();
+
+                JLabel label = window.label().target();
+                Assert.assertTrue(
+                    String.format("Preferred size %s smaller than actual size %s", label.getPreferredSize(), label.getSize()),
+                    label.getSize().getWidth() >= label.getPreferredSize().getWidth() &&
+                    label.getSize().getHeight() >= label.getPreferredSize().getHeight());
+
                 window.label().requireText(text);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
                 logState("Final condition:", window);
             }
         };
