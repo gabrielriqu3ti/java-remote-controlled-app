@@ -1,4 +1,4 @@
-package org.guiapp;
+package org.guiapp.ui;
 
 import org.assertj.swing.edt.FailOnThreadViolationRepaintManager;
 import org.assertj.swing.edt.GuiActionRunner;
@@ -30,10 +30,11 @@ public class AppTest {
         logState("Initial condition:");
         window.label().requireText("Typing...");
         window.textBox().requireText("Insert text here...");
-        window.textBox().deleteText().enterText("New text");
-        window.textBox().requireText("New text");
+        String text = "New text";
+        window.textBox().deleteText().enterText(text);
+        window.textBox().requireText(text);
         window.button().click();
-        window.label().requireText("New text");
+        window.label().requireText(text);
         logState("Final condition:");
     }
 

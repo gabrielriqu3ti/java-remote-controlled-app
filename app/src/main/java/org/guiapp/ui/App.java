@@ -1,6 +1,7 @@
-package org.guiapp;
+package org.guiapp.ui;
 
 import java.awt.Dimension;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
