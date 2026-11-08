@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'com.google.protobuf' version '0.9.5'
 }
 
 repositories {
@@ -16,6 +17,11 @@ repositories {
 }
 
 dependencies {
+    // Use gRPC framework
+    runtimeOnly libs.grpc.netty.shaded
+    implementation libs.grpc.protobuf
+    implementation libs.grpc.stub
+
     // User AssertJ framework to test Swing components 
     implementation libs.assertj.swing
 
@@ -24,6 +30,22 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+}
+
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.25.9'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.85.0'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
