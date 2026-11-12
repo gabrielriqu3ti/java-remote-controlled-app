@@ -9,6 +9,7 @@ import org.guiapp.robot.FrameFactory;
 import org.guiapp.robot.Robot;
 import org.guiapp.robot.RobotFactory;
 import org.guiapp.robot.RobotManager;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -52,6 +53,9 @@ public class AppTestWithRobot {
                 }
                 logState("Final condition:", window);
             }
+
+            @Override
+            public void cleanUp() {}
         };
 
         robotManager = new RobotManager(frameFactory, robotFactory);
@@ -60,6 +64,11 @@ public class AppTestWithRobot {
     @Test
     public void copyTextTest() {
         robotManager.execute();
+    }
+
+    @After
+    public void tearDown() {
+        robotManager.cleanUp();
     }
 
     private void logState(String note, FrameFixture window) {

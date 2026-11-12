@@ -12,4 +12,5 @@ public abstract class Robot {
 
     public abstract void execute();
 
+    public abstract void cleanUp();
 }

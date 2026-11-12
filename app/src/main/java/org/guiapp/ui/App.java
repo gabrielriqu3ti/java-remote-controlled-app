@@ -12,9 +12,9 @@ import javax.swing.SwingUtilities;
 
 public class App extends JFrame {
 
-    JTextField tfInputText;
-    JButton btCopyText;
-    JLabel lbCopiedText;
+    private JTextField tfInputText;
+    private JButton btCopyText;
+    private JLabel lbCopiedText;
 
     public App() {
         setTitle(getClass().getCanonicalName());
