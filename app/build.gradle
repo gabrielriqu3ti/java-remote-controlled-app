@@ -57,9 +57,9 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.guiapp.ui.App'
-    // mainClass = 'org.guiapp.ui.RemoteControlledApp'
+    // mainClass = 'org.guiapp.ui.App'
     // mainClass = 'org.guiapp.grpc.helloworld.HelloWorldServer'
+    mainClass = 'org.guiapp.ui.RemoteControlledApp'
 }
 
 test {
