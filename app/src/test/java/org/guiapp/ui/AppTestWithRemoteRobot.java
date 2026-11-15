@@ -59,13 +59,13 @@ public class AppTestWithRemoteRobot {
         saveImage(imageBefore, imageFormat, "appAtBeginning.png");
 
         String newText = "New text";
-        String newTextBoxText = client.setTextBoxText(String.join(".", "App", "JTextField", "inputText"), newText);
+        String newTextBoxText = client.setTextBoxText("App.JTextField.inputText", newText);
         Assert.assertEquals("Failed to type text into text box", newText, newTextBoxText);
 
-        boolean clicked = client.clickButton(String.join(".", "App", "JButton", "copyText"));
+        boolean clicked = client.clickButton("App.JButton.copyText");
         Assert.assertTrue("Failed to click button", clicked);
 
-        String newTextLabel = client.getLabelText(String.join(".", "App", "JLabel", "copiedText"));
+        String newTextLabel = client.getLabelText("App.JLabel.copiedText");
         Assert.assertEquals("Failed to update text of label", newText, newTextLabel);
 
         BufferedImage imageAfter = client.takeScreenshot("Screenshot after copy text was copyed");

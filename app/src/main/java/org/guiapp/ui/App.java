@@ -34,7 +34,7 @@ public class App extends JFrame {
     private JTextField getTfInputText() {
         if (tfInputText == null) {
             tfInputText = new JTextField("Insert text here...");
-            tfInputText.setName(String.join(".", getName(), "JTextField", "inputText"));
+            tfInputText.setName("App.JTextField.inputText");
         }
         return tfInputText;
     }
@@ -42,7 +42,7 @@ public class App extends JFrame {
     private JButton getBtCopyText() {
         if (btCopyText == null) {
             btCopyText = new JButton("Copy");
-            btCopyText.setName(String.join(".", getName(), "JButton", "copyText"));
+            btCopyText.setName("App.JButton.copyText");
             btCopyText.addActionListener((e) -> getLbCopiedText().setText(getTfInputText().getText()));
         }
         return btCopyText;
@@ -51,7 +51,7 @@ public class App extends JFrame {
     private JLabel getLbCopiedText() {
         if (lbCopiedText == null) {
             lbCopiedText = new JLabel("Typing...");
-            lbCopiedText.setName(String.join(".", getName(), "JLabel", "copiedText"));
+            lbCopiedText.setName("App.JLabel.copiedText");
         }
         return lbCopiedText;
     }
